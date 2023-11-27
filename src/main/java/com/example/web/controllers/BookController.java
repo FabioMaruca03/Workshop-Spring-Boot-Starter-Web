@@ -5,6 +5,7 @@ import com.example.web.services.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartRequest;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,7 +31,7 @@ public class BookController {
         return ResponseEntity.of(bookService.save(book));
     }
 
-    @PatchMapping("/{id}")
+    @PatchMapping(value = "/{id}", consumes = "application/xml")
     public ResponseEntity<Book> modifyBook(@PathVariable UUID id, @RequestBody Book book) {
         book.setId(id);
         return ResponseEntity.of(bookService.modify(book));

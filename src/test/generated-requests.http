@@ -1,7 +1,5 @@
 ###
-GET http://localhost:8080/books/2a8fd5f0-025b-4f2f-ae6e-e30643b5dc94
-
-<> 2023-11-27T123203.200.json
+GET http://localhost:8080/books/39858cea-5286-434c-a5d6-4a8c31eb5fe4
 
 ###
 POST http://localhost:8080/books/
@@ -12,9 +10,22 @@ Content-Type: application/json
   "release": "2023-11-27T00:00:00"
 }
 
-<> 2023-11-27T123049.200.json
 
 ###
 GET http://localhost:8080/books/
 
-<> 2023-11-27T123133.200.json
+###
+DELETE http://localhost:8080/books/39858cea-5286-434c-a5d6-4a8c31eb5fe4
+
+###
+PATCH http://localhost:8080/books/7f545733-0257-4a4d-89b2-1675e38b4774
+Content-Type: application/json
+
+{
+  "title": "Workshop - Spring Boot Starter Web",
+  "author": {
+    "name": "Fabio",
+    "surname": "Maruca"
+  },
+  "release": "2023-11-27T00:00:00"
+}
