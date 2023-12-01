@@ -20,8 +20,7 @@ public class BookService {
     private final BookRepository repository;
 
     public Optional<Book> findBook(UUID id) {
-        throw new BookNotFoundException("Could not find the ID");
-        // return repository.findById(id);
+        return repository.findById(id);
     }
 
     public List<Book> findAll() {

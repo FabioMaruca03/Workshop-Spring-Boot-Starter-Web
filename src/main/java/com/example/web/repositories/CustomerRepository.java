@@ -24,9 +24,9 @@ public class CustomerRepository extends RegularRepository<Customer, UUID> implem
         if (datasource.values().stream().anyMatch(x -> x.getUsername().equalsIgnoreCase(element.getUsername())))
             return Optional.empty();
 
+        element.setPassword(encoder.encode(element.getPassword()));
         do {
             element.setId(UUID.randomUUID());
-            element.setPassword(encoder.encode(element.getPassword()));
         } while (findById(element.getId()).isPresent());
 
         return Optional.ofNullable(datasource.put(element.getId(), element))
@@ -40,4 +40,5 @@ public class CustomerRepository extends RegularRepository<Customer, UUID> implem
                 .findAny()
                 .orElseThrow(() -> new UsernameNotFoundException("User with username %s does not exist in the database".formatted(username)));
     }
+
 }

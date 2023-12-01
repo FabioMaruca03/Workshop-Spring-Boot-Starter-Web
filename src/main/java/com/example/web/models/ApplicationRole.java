@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 public enum ApplicationRole {
     CUSTOMER("books:read", "books:buy"),
-    ADMIN("books:create", "books:read", "books:modify"),
-    DEVELOPER("books:*");
+    ADMIN("books:delete", "books:create", "books:read", "books:modify"),
+    DEVELOPER(String.valueOf(ADMIN.authorities));
 
     private final Set<String> authorities;
 

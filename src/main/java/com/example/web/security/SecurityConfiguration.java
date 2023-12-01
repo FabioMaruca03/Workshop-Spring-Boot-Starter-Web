@@ -34,7 +34,6 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests((registry) ->
                         registry
                                 .requestMatchers("/login", "/logout", "/error").permitAll()
-                                .requestMatchers("/books", "/books/**").hasAnyAuthority("books:*", "books:read")
                                 .anyRequest().authenticated()
                 )
                 .logout(configurer -> configurer
